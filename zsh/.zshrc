@@ -3,6 +3,7 @@
 # -----------------------------
 export XDG_CONFIG_HOME="$HOME/.config"
 export VIM="nvim"
+export PATH="$PATH:$(go env GOPATH)/bin"
 export VIMRUNTIME=/usr/share/nvim/runtime
 
 # -----------------------------
@@ -51,7 +52,7 @@ addToPathFront() {
 }
 
 paths=(
-    "$HOME/.zig"
+    "$HOME/zig-linux-x86_64-0.16.0-dev.1484+d0ba6642b" #new zig
     "$HOME/.local/.npm-global/bin"
     "$HOME/.local/scripts"
     "$HOME/.local/bin"
