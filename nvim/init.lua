@@ -1,5 +1,7 @@
 -- Load plugin manager
 require("config.lazy")
+require("config.keymaps")
+require("config.lsp")
 
 -- Enable line numbers
 vim.opt.number = true
