@@ -1,3 +1,6 @@
+-- Leader key (must be set before plugins load)
+vim.g.mapleader = " "
+
 -- Load plugin manager
 require("config.lazy")
 require("config.keymaps")
