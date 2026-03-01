@@ -1,6 +1,6 @@
 -- Bootstrap Lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   vim.fn.system({
     "git", "clone", "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
@@ -56,6 +56,13 @@ require("lazy").setup({
   {
     "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      local builtin = require("telescope.builtin")
+      vim.keymap.set("n", "<leader>ff", builtin.find_files, { noremap = true, silent = true })
+      vim.keymap.set("n", "<leader>fg", builtin.live_grep, { noremap = true, silent = true })
+      vim.keymap.set("n", "<leader>fb", builtin.buffers, { noremap = true, silent = true })
+      vim.keymap.set("n", "<leader>fh", builtin.help_tags, { noremap = true, silent = true })
+    end,
   },
 
   -- LSP
