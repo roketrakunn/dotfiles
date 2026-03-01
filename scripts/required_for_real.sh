@@ -23,17 +23,17 @@ cd -
 
 #Hyprland extra modules
 echo "Installing Hyprland extras..."
-sudo pacman -S waybar swaylock swaybg swayidle mako grim slurp wl-clipboard grimblast --noconfirm
+sudo pacman -S waybar swaylock swaybg swayidle mako grim slurp wl-clipboard  --noconfirm
 
 #Reload dotfiles & services
 echo "Reloading Tmux, Zsh, and Waybar..."
 # Tmux
 tmux source-file ~/.config/tmux/.tmux.conf || echo "No tmux session yet"
 # Zsh
-exec zsh
+#exec zsh
 # Waybar
-pkill -f waybar || true
-waybar &
+#pkill -f waybar || true
+#waybar &
 
 #personal scripts
 echo "Linking dotfiles scripts..."

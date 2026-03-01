@@ -1,45 +1,55 @@
+ /* ========================================
+   WAYBAR — CATPPUCCIN MOCHA × NEON EDGE
+   GTK CSS compatible — rgba() for alpha
+   JetBrains Mono Nerd Font
+   ======================================== */
+
 * {
-  font-family: JetbrainsMono Nerd Font;
-  font-size: 10px;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 11px;
   min-height: 0;
+  border: none;
+  border-radius: 0;
   padding-right: 2px;
   padding-left: 2px;
-  padding-bottom: 0px;
+  padding-bottom: 0;
 }
 
 #waybar {
   background: transparent;
   color: #c6d0f5;
-  margin: 2px 2px;
+  margin: 4px 6px;
 }
 
+/* ── Workspaces ── */
 #workspaces {
-  border-radius: 5px;
-  margin: 5px;
   background: #101010;
-  margin-left: 2px;
+  border-radius: 8px;
+  margin: 4px;
+  padding: 0 2px;
+  border: 1px solid #1e1e2e;
 }
 
 #workspaces button {
-  color: #babbf1;
-  border-radius: 5px;
-  padding: 0.4rem;
+  color: #585b70;
+  border-radius: 6px;
+  padding: 2px 8px;
+  margin: 2px;
+  background: transparent;
+  transition: color 200ms ease, background 200ms ease;
 }
 
 #workspaces button.active {
-  color: #99d1db;
-  border-radius: 5px;
-}
-
-button {
-  background: transparent;
+  color: #cdd6f4;
+  background: #1e1e2e;
 }
 
 #workspaces button:hover {
-  background: #1e1e1e;
-  border: 0px solid transparent;
+  color: #8caaee;
+  background: #181825;
 }
 
+/* ── Base module style ── */
 #custom-music,
 #tray,
 #backlight,
@@ -54,103 +64,193 @@ button {
 #custom-weather,
 #custom-uptime,
 #custom-docker {
-  background-color: #101010;
-  padding: 0.5rem 1rem;
-  margin: 5px 0;
+  background: #101010;
+  color: #c6d0f5;
+  padding: 3px 12px;
+  margin: 4px 0;
+  transition: all 200ms ease;
 }
 
+/* ── CLOCK ── */
 #clock {
   color: #8caaee;
-  border-radius: 5px;
+  border-radius: 8px;
+  font-weight: bold;
+  border: 1px solid rgba(140, 170, 238, 0.25);
 }
 
+#clock:hover {
+  border-color: rgba(140, 170, 238, 0.6);
+  background: #181825;
+}
+
+/* ── WEATHER ── */
 #custom-weather {
-  color: #8caaee;
-  margin-left: 0.5rem;
-  border-radius: 5px;
+  border-radius: 8px;
+  margin-left: 4px;
+  border: 1px solid transparent;
 }
 
+#custom-weather.clear   { color: #e5c890; border-color: rgba(229, 200, 144, 0.25); }
+#custom-weather.cloud   { color: #99d1db; border-color: rgba(153, 209, 219, 0.25); }
+#custom-weather.rain    { color: #8caaee; border-color: rgba(140, 170, 238, 0.25); }
+#custom-weather.snow    { color: #c6d0f5; border-color: rgba(198, 208, 245, 0.25); }
+#custom-weather.thunder { color: #ca9ee6; border-color: rgba(202, 158, 230, 0.5); background: #1a1427; }
+#custom-weather.fog     { color: #b0b4bc; border-color: rgba(176, 180, 188, 0.25); }
+#custom-weather.error   { color: #e78284; border-color: rgba(231, 130, 132, 0.25); }
+
+#custom-weather:hover { background: #181825; }
+
+/* ── BATTERY ── */
 #battery {
   color: #a6d189;
+  border-radius: 0;
 }
 
 #battery.charging {
   color: #a6d189;
+  background: #0e1a10;
 }
 
 #battery.warning:not(.charging) {
   color: #e78284;
+  background: #1a0e0e;
 }
 
+#battery.critical:not(.charging) {
+  color: #e78284;
+  background: #2a0e0e;
+  border: 1px solid rgba(231, 130, 132, 0.4);
+}
+
+/* ── BACKLIGHT ── */
 #backlight {
   color: #e5c890;
-}
-
-#backlight,
-#battery {
   border-radius: 0;
 }
 
+/* ── AUDIO ── left cap */
 #pulseaudio {
   color: #ea999c;
-  border-radius: 5px 0px 0px 5px;
+  border-radius: 8px 0 0 8px;
+  border: 1px solid rgba(234, 153, 156, 0.25);
+  border-right: none;
 }
 
-#custom-docker {
-  color: #85c1dc;
+#pulseaudio.muted {
+  color: #414559;
+  background: #0e0e0e;
+  border-color: rgba(65, 69, 89, 0.25);
 }
 
+#pulseaudio:hover { background: #1e1218; }
+
+/* ── NETWORK ── */
+#network {
+  color: #a6d189;
+  border-radius: 8px;
+  border: 1px solid rgba(166, 209, 137, 0.25);
+}
+
+#network.disconnected {
+  color: #e78284;
+  border-color: rgba(231, 130, 132, 0.25);
+  background: #1a0e0e;
+}
+
+#network:hover { background: #0e1a10; }
+
+/* ── CPU ── */
+#cpu {
+  color: #ef9f76;
+  border-radius: 8px;
+  border: 1px solid rgba(239, 159, 118, 0.25);
+}
+
+#cpu:hover { background: #1a1208; }
+
+/* ── MEMORY ── */
+#memory {
+  color: #ca9ee6;
+  border-radius: 8px;
+  border: 1px solid rgba(202, 158, 230, 0.25);
+}
+
+#memory:hover { background: #150e1a; }
+
+/* ── MUSIC ── */
 #custom-music {
   color: #ca9ee6;
-  border-radius: 5px;
+  border-radius: 8px;
+  border: 1px solid rgba(202, 158, 230, 0.25);
+  font-style: italic;
 }
 
+#custom-music:hover {
+  background: #150e1a;
+  border-color: rgba(202, 158, 230, 0.6);
+}
+
+/* ── DOCKER ── */
+#custom-docker {
+  border-radius: 8px;
+  border: 1px solid transparent;
+}
+
+#custom-docker.docker       { color: #85c1dc; border-color: rgba(133, 193, 220, 0.25); }
+#custom-docker.docker-none  { color: #414559; }
+#custom-docker.docker-error { color: #e78284; border-color: rgba(231, 130, 132, 0.25); background: #1a0e0e; }
+
+/* ── LOCK ── middle of group */
 #custom-lock {
   color: #babbf1;
+  border-top: 1px solid rgba(186, 187, 241, 0.2);
+  border-bottom: 1px solid rgba(186, 187, 241, 0.2);
 }
 
+#custom-lock:hover {
+  background: #1e1e2e;
+  color: #c6d0f5;
+}
+
+/* ── POWER ── right cap */
 #custom-power {
-  margin-right: 1rem;
-  border-radius: 0px 5px 5px 0px;
   color: #e78284;
+  border-radius: 0 8px 8px 0;
+  margin-right: 4px;
+  border: 1px solid rgba(231, 130, 132, 0.25);
+  border-left: none;
 }
 
-#custom-docker.docker {
-  color: #85c1dc;
+#custom-power:hover {
+  background: #1a0e0e;
+  border-color: rgba(231, 130, 132, 0.6);
 }
 
-#custom-docker.docker-none {
-  color: #737994;
+/* ── TRAY ── */
+#tray { border-radius: 8px; }
+#tray > .passive         { -gtk-icon-effect: dim; }
+#tray > .needs-attention { -gtk-icon-effect: highlight; }
+
+/* ── UPTIME ── */
+#custom-uptime {
+  color: #99d1db;
+  border-radius: 8px;
+  border: 1px solid rgba(153, 209, 219, 0.25);
 }
 
-#custom-docker.docker-error {
-  color: #e78284;
+#custom-uptime:hover { background: #0e1618; }
+
+/* ── Tooltip ── */
+tooltip {
+  background: #0e0e0e;
+  border: 1px solid #313244;
+  border-radius: 8px;
+  color: #cdd6f4;
 }
 
-#custom-weather.clear {
-  color: #e5c890; /* Sunny yellow */
-}
-
-#custom-weather.cloud {
-  color: #99d1db; /* Light blue */
-}
-
-#custom-weather.rain {
-  color: #8caaee; /* Blue */
-}
-
-#custom-weather.snow {
-  color: #c6d0f5; /* White-ish */
-}
-
-#custom-weather.thunder {
-  color: #ca9ee6; /* Purple */
-}
-
-#custom-weather.fog {
-  color: #b0b4bc; /* Gray */
-}
-
-#custom-weather.error {
-  color: #e78284; /* Red */
+tooltip label {
+  color: #cdd6f4;
+  font-size: 11px;
+  padding: 4px 8px;
 }

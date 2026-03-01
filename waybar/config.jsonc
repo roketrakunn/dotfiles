@@ -103,5 +103,18 @@
     "interval": 1800,
     "exec": "$(pwd)/scripts/weather-stats/weather-stats",
     "return-type": "json"
+  },
+
+  "battery": {
+    "bat": "BAT0,BAT1",
+    "adapter": "AC",
+    "interval": 5,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% 🔋",
+    "format-charging": "{capacity}% ⚡",
+    "format-plugged": "{capacity}% 🔌"
   }
 }

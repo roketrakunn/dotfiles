@@ -9,7 +9,7 @@ export VIMRUNTIME=/usr/share/nvim/runtime
 # -----------------------------
 # Personal env files
 # -----------------------------
-PERSONAL="$XDG_CONFIG_HOME/personal"
+PERSONAL="$XDG_CONFIG_HOME/zsh/personal"
 
 if [[ -d "$PERSONAL" ]]; then
     for file in "$PERSONAL"/*; do
