@@ -28,7 +28,7 @@ sudo pacman -S waybar swaylock swaybg swayidle mako grim slurp wl-clipboard  --n
 #Reload dotfiles & services
 echo "Reloading Tmux, Zsh, and Waybar..."
 # Tmux
-tmux source-file ~/.config/tmux/.tmux.conf || echo "No tmux session yet"
+tmux source-file ~/.config/tmux/tmux.conf || echo "No tmux session yet"
 # Zsh
 #exec zsh
 # Waybar
