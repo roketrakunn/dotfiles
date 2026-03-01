@@ -1,27 +1,17 @@
-local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-lspconfig.pyright.setup({
-    capabilities = capabilities,
+-- Apply capabilities to all servers
+vim.lsp.config("*", {
+  capabilities = capabilities,
 })
 
-lspconfig.gopls.setup({
-    capabilities = capabilities,
-})
-
-lspconfig.lua_ls.setup({
-    capabilities = capabilities,
-    settings = {
-        Lua = {
-            diagnostics = { globals = { "vim" } },
-        },
+-- lua_ls needs extra settings to recognise the vim global
+vim.lsp.config("lua_ls", {
+  settings = {
+    Lua = {
+      diagnostics = { globals = { "vim" } },
     },
+  },
 })
 
-lspconfig.clangd.setup({
-    capabilities = capabilities,
-})
-
-lspconfig.rust_analyzer.setup({
-    capabilities = capabilities,
-})
+vim.lsp.enable({ "pyright", "gopls", "lua_ls", "clangd", "rust_analyzer" })
