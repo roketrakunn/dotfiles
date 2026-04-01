@@ -2,9 +2,10 @@
 # Base paths and editors
 # -----------------------------
 export XDG_CONFIG_HOME="$HOME/.config"
-export VIM="nvim"
+export VIM="vim"
 export PATH="$PATH:$(go env GOPATH)/bin"
 export VIMRUNTIME=/usr/share/nvim/runtime
+export CC=gcc
 
 # -----------------------------
 # Personal env files
