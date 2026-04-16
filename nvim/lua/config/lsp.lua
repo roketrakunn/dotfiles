@@ -14,4 +14,16 @@ vim.lsp.config("lua_ls", {
   },
 })
 
-vim.lsp.enable({ "pyright", "gopls", "lua_ls", "clangd", "rust_analyzer" })
+vim.lsp.config("pylsp", {
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = { enabled = false },
+        pyflakes    = { enabled = false },
+        mccabe      = { enabled = false },
+      },
+    },
+  },
+})
+
+vim.lsp.enable({ "pylsp", "gopls", "lua_ls", "clangd", "rust_analyzer" })
