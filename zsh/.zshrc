@@ -156,4 +156,5 @@ unset __conda_setup
 # Final tweaks
 # -----------------------------
 export EDITOR="$VIM"
+alias ls="exa -1 --icons"
 

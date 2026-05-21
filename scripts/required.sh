@@ -67,7 +67,7 @@ fi
 # Optional: other tools
 # -----------------------------
 echo "Installing other useful cool tools that I like..."
-sudo pacman -S --needed fzf tmux git ripgrep wget curl --noconfirm
+sudo pacman -S --needed fzf tmux git ripgrep wget curl exa --noconfirm
 
 echo "Good to go"
 

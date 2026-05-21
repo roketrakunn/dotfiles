@@ -16,8 +16,8 @@ echo "Installing Nerd Fonts..."
 NFDIR="$HOME/.local/share/fonts"
 mkdir -p "$NFDIR"
 cd "$NFDIR"
-wget -q https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FiraCode.zip -O FiraCode.zip
-unzip -o FiraCode.zip
+wget -q https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip -O JetBrainsMono.zip
+unzip -o JetBrainsMono.zip
 fc-cache -fv
 cd -
 
