@@ -83,9 +83,10 @@ require("lazy").setup({
           clear_suggestion = "<C-]>",
           accept_word = "<C-j>",
         },
-        disable_inline_completion = false,
+        disable_inline_completion = true,
         disable_keymaps = false,
       })
+      vim.keymap.set("n", "<leader>sm", "<cmd>SupermavenToggle<CR>", { desc = "Toggle Supermaven" })
     end,
   },
 
