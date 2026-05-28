@@ -16,6 +16,9 @@ vim.opt.background = "dark"
 vim.cmd("hi Normal ctermbg=NONE guibg=NONE")
 vim.cmd("hi VertSplit ctermbg=NONE guibg=NONE")
 
+-- Cursor
+vim.opt.guicursor = "n-c:block,v:block,i-ci-ve:ver25"
+
 -- Tabs & indentation
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4

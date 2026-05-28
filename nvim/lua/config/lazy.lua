@@ -42,7 +42,7 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function()
-      require("nvim-treesitter.configs").setup({
+      require("nvim-treesitter").setup({
         ensure_installed = {
           "lua", "go", "java", "python", "bash", "json", "html", "css"
         },
@@ -72,6 +72,23 @@ require("lazy").setup({
     ft = "java",
   },
 
+  -- Supermaven (ghost text only)
+  {
+    "supermaven-inc/supermaven-nvim",
+    event = "InsertEnter",
+    config = function()
+      require("supermaven-nvim").setup({
+        keymaps = {
+          accept_suggestion = "<C-CR>",
+          clear_suggestion = "<C-]>",
+          accept_word = "<C-j>",
+        },
+        disable_inline_completion = false,
+        disable_keymaps = false,
+      })
+    end,
+  },
+
   -- Autocompletion
   {
     "hrsh7th/nvim-cmp",
@@ -83,6 +100,7 @@ require("lazy").setup({
     config = function()
       local cmp = require("cmp")
       cmp.setup({
+        preselect = cmp.PreselectMode.Item,
         snippet = {
           expand = function(args)
             require("luasnip").lsp_expand(args.body)
@@ -90,6 +108,8 @@ require("lazy").setup({
         },
         mapping = cmp.mapping.preset.insert({
           ["<C-Space>"] = cmp.mapping.complete(),
+          ["<Down>"] = cmp.mapping.select_next_item(),
+          ["<Up>"] = cmp.mapping.select_prev_item(),
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
         }),
         sources = {
